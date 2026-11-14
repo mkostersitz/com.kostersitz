@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible problem in one of the games or apps
+title: "[Bug]: "
+body:
+  - type: input
+    id: product
+    attributes:
+      label: Game or app
+      description: Which product is affected?
+      placeholder: Product name
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Include the game/app version and, if relevant, store release.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Device and platform
+      description: Include the device model and operating system/platform version.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps that cause the problem.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include any error message.
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or logs
+      description: Optional. Remove passwords, account details, and other personal information before sharing.
+    validations:
+      required: false
