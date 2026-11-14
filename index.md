@@ -12,8 +12,8 @@ Find policy information and support for the games and apps published by **Mike K
 | App | Category | Available on |
 |-----|----------|-------------|
 | [Clockwork Accent](#) | Game | iOS, iPadOS |
-| [NullRoute](#) | Game | iOS, iPadOS, macOS, Windows |
-| [Cloud Media Player](#) | Utility | iOS, iPadOS, macOS, Windows |
+| [NullRoute](#) | Game | iOS, iPadOS, macOS |
+| [Cloud Media Player](#) | Utility | Windows |
 
 Platform availability may vary by version. Check individual store listings for the most current information.
 
