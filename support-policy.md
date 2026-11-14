@@ -5,43 +5,76 @@ title: Support Policy
 
 # Support Policy
 
-**Last updated:** [Month DD, YYYY]
+**Last updated:** November 14, 2026
 
-This policy explains how to get help with **[game or app names]** from **[publisher or company name]**. Replace the bracketed details and remove any options you do not offer.
+This page explains how to get help with **Clockwork Accent**, **NullRoute**, and **Cloud Media Player** from **Mike Kostersitz**.
 
-## Contact
+## Contact {#contact}
 
-Email **[support email address]** or use **[support contact page]**. Include the Product name, version, device or platform, and a description of the problem. Do not send passwords, payment card details, or other sensitive information.
+Email **[support@kostersitz.com](mailto:support@kostersitz.com)** with the subject line starting with the app name (e.g., "Clockwork Accent — ").
 
-**Support hours:** [Days and hours, including time zone, or “email support; replies are not available in real time.”]
+**Support hours:** Email support; replies are not available in real time.
 
-**Typical response time:** [Realistic response time; clarify that it is an estimate.]
+**Typical response time:** 2–5 business days. During a major update period, response may take up to 7 business days.
 
-**Supported languages:** [Languages]
+**Supported languages:** English
+
+Do not send passwords, payment card numbers, Apple ID or Microsoft account credentials, or cloud storage credentials in support messages.
 
 ## What we can help with
 
-We can help with [installation, technical problems, account or saved-progress issues, accessibility, and other supported topics]. For purchases, subscriptions, or refunds, contact the store or platform that processed the transaction unless you provide another support route here: **[instructions]**.
+- Installation and launch problems
+- Crashes and unexpected behavior
+- Saving and loading progress (Clockwork Accent, NullRoute)
+- iCloud sync issues (Apple platforms only)
+- Cloud storage connection issues (Cloud Media Player)
+- Supported file formats and playback problems (Cloud Media Player)
+- Accessibility questions
+- General gameplay questions (Clockwork Accent, NullRoute)
 
-## Troubleshooting
+**Purchases, subscriptions, and refunds** are handled by the store where you purchased the app. Contact Apple Support at [apple.com/support](https://support.apple.com) for App Store purchases, or Microsoft Support for Microsoft Store purchases. We cannot process refunds directly.
 
-Before contacting support, try [basic steps that are safe and relevant, such as restarting or checking for updates]. Do not suggest steps that may delete saved data unless you clearly explain the risk and provide recovery guidance.
+## Troubleshooting steps to try first
 
-## What to include in a request
+1. **Force-quit and relaunch** the app.
+2. **Check for an update** — many issues are fixed in the latest version.
+3. **Restart your device.**
+4. **Check your internet connection** (Cloud Media Player requires a connection to your cloud provider).
+5. **Re-authorize cloud storage** if Cloud Media Player loses access — go to the app's Settings and reconnect your cloud account.
+6. **Check iCloud status** at [apple.com/support/systemstatus](https://www.apple.com/support/systemstatus/) for sync issues (Apple platforms only).
+7. **Windows only:** Check that your antivirus or firewall is not blocking the app. Try running the app as your normal user account, not as administrator.
 
-- Product name and version
-- Device model and operating system or platform version
-- Steps that reproduce the problem and what you expected to happen
-- What happened instead, including any error message
-- Whether the problem started after a recent update
-- Screenshots or logs, if useful and safe to share
+Do not delete and reinstall the app to fix a crash unless instructed — this may delete local save data.
 
-Remove personal information from screenshots and logs before sending them. We handle support requests as described in the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
+## What to include in a support request
+
+- **App name and version** (found in the store listing or the app's About/Settings screen)
+- **Device or computer** (e.g., iPhone 15 Pro, iPad Air M2, MacBook Pro M3, Windows 11 PC with GPU model if relevant)
+- **OS version** (iOS 18.1, macOS 15.2, Windows 11 24H2, etc.)
+- **Steps to reproduce** — what you did, in order, and what you expected
+- **What happened instead** — including any error message, word for word
+- **Whether the problem started after a specific update**
+- **Screenshots or screen recordings** — helpful for visual bugs; remove any personal information before attaching
+
+We handle support requests as described in the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
+
+## App-specific notes
+
+### Clockwork Accent
+- Available on iOS and iPadOS. Save data is stored locally and can optionally sync via iCloud. If you switch devices, enable iCloud Drive and wait for sync before playing on the new device to avoid overwriting progress.
+
+### NullRoute
+- Available on iOS, iPadOS, macOS, and Windows. Settings and progress are stored locally. On Apple platforms, they can optionally sync via iCloud. On Windows, saves are stored locally only — there is no cross-platform sync between Apple and Windows at this time.
+
+### Cloud Media Player
+- Available on iOS, iPadOS, macOS, and Windows. The app requires permission to access your cloud storage. If access is revoked or expires, go to the app's Settings and reconnect to restore it.
+- Supported cloud providers and file formats are listed in the app's Help section. We cannot add support for a provider or format outside an app update.
 
 ## Limits
 
-Explain any support exclusions, availability limits, or end-of-life arrangements: **[details, if applicable]**.
+We provide best-effort support for the current release and the previous major version. Older versions may not receive dedicated support. We do not provide support for jailbroken or sideloaded configurations on Apple platforms, or for versions obtained outside the official Microsoft Store on Windows.
 
-## Contact
+## Contact {#contact-footer}
 
-For support, use **[support email address or contact page]**.
+For support, email **[support@kostersitz.com](mailto:support@kostersitz.com)**.
+To report a bug, see the [Bug Reporting]({{ '/bug-reports/' | relative_url }}) page.

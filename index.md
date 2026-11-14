@@ -1,13 +1,21 @@
 ---
 layout: default
-title: Games and Apps Policies & Support
+title: Policies & Support — Kostersitz Apps
 ---
 
-# Games and Apps Policies & Support
+# Kostersitz Apps — Policies & Support
 
-Find policy information and support for **[replace with your games and apps]**.
+Find policy information and support for the games and apps published by **Mike Kostersitz**.
 
-> **Before publishing:** Replace every bracketed instruction on these pages with accurate, product-specific information. Remove sections that do not apply. These starter pages are not legal advice and should be reviewed for the laws and platforms that apply to your products.
+## Our Apps
+
+| App | Category | Available on |
+|-----|----------|-------------|
+| [Clockwork Accent](#) | Game | iOS, iPadOS |
+| [NullRoute](#) | Game | iOS, iPadOS, macOS, Windows |
+| [Cloud Media Player](#) | Utility | iOS, iPadOS, macOS, Windows |
+
+Platform availability may vary by version. Check individual store listings for the most current information.
 
 ## Policies
 
@@ -15,7 +23,11 @@ Find policy information and support for **[replace with your games and apps]**.
 - [Data Handling Policy]({{ '/data-handling-policy/' | relative_url }})
 - [Support Policy]({{ '/support-policy/' | relative_url }})
 
-## Get help or report a bug
+## Get Help or Report a Bug
 
 - [Contact support]({{ '/support-policy/#contact' | relative_url }})
 - [Report a bug]({{ '/bug-reports/' | relative_url }})
+
+---
+
+*All apps are independently developed by Mike Kostersitz. Privacy first: no advertising SDKs, no data selling.*
