@@ -3,7 +3,7 @@ layout: default
 title: Policies & Support — Kostersitz Apps
 ---
 
-# Kostersitz Apps — Policies & Support
+# Apps — Policies & Support
 
 Find policy information and support for the games and apps published by **Mike Kostersitz**.
 
