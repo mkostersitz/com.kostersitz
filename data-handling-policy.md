@@ -7,7 +7,7 @@ title: Data Handling Policy
 
 **Last updated:** November 14, 2026
 
-This page describes, in practical terms, what data **Mike Kostersitz** handles for **Clockwork Accent**, **NullRoute**, and **Cloud Media Player**, where it goes, and how it is managed. For user-facing privacy information, see the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
+This page describes, in practical terms, what data **Mike Kostersitz** handles for **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player**, where it goes, and how it is managed. For user-facing privacy information, see the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
 
 ## Data inventory
 
@@ -27,11 +27,12 @@ This page describes, in practical terms, what data **Mike Kostersitz** handles f
 | File/folder list from authorized cloud path | Cloud provider API | Display media library | Required for cloud features |
 | Local playback history and playlists | User actions in app | Restore playback state | Stored locally; optional (clearable in app) |
 
-### Clockwork Accent (additional)
+### Clockwork Ascent (additional)
 
 | Data | Source | Purpose | Required or optional |
 |------|--------|---------|---------------------|
-| Game save data | User gameplay | Save and restore progress | Stored locally; optionally in user's iCloud account (Apple platforms only) |
+| Game progress and settings | User gameplay | Save and restore progress | Stored locally on the device only; not synced via iCloud; may be included in the user's own device backups |
+| Record of owned products | Apple (StoreKit) | Unlock purchased chapters offline | Stored locally on the device; purchases themselves are processed by Apple |
 
 ### NullRoute (additional)
 

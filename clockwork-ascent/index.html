@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://apps.kostersitz.com/clockwork-ascent/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clockwork Ascent">
+<meta property="og:description" content="A pixel-art puzzle climb for iPhone, iPad and Mac. Mesh gears, route conveyor belts and climb the Spire to bring Princess Elara home.">
+<meta property="og:url" content="https://apps.kostersitz.com/clockwork-ascent/">
+<meta property="og:image" content="https://apps.kostersitz.com/clockwork-ascent/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Clockwork Ascent</title>
+<meta name="description" content="Clockwork Ascent is a pixel-art puzzle climb for iPhone, iPad and Mac. Mesh gears, route conveyor belts and climb the Spire to bring Princess Elara home.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Silkscreen&display=swap">
+<style>
+/* Layout: one night climb. The page reads like the game's own map, a lantern-lit night over a foundry,
+   with the Spire's chapters stacked top-down as the player sees them. Single dark world by design. */
+:root {
+  --night: #0b1030;
+  --dusk: #1b2150;
+  --soot: #15120f;
+  --plate: #221d17;
+  --brass: #b8862f;
+  --gold: #f0cd72;
+  --ember: #e8732c;
+  --steam: #ece5d6;
+  --muted: #a99f8c;
+  --jewel: #5ccfe0;
+  --line: rgba(240, 205, 114, 0.22);
+
+  --f-display: "IM Fell English SC", "IM Fell English", Georgia, "Times New Roman", serif;
+  --f-serif: "IM Fell English", Georgia, "Times New Roman", serif;
+  --f-body: "Alegreya Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-pixel: "Silkscreen", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --step--1: clamp(0.84rem, 0.8rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1.02rem, 0.97rem + 0.25vw, 1.15rem);
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.55rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.4rem, 1.7rem + 3.4vw, 4.6rem);
+
+  --wrap: 1120px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; }
+html { background: var(--soot); }
+body {
+  background:
+    linear-gradient(180deg, var(--night) 0, var(--dusk) 38rem, var(--soot) 78rem, var(--soot) 100%);
+  color: var(--steam);
+  font: 400 var(--step-0)/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.08; }
+h2 { font-size: var(--step-2); color: var(--gold); }
+h3 { font-size: var(--step-1); color: var(--gold); }
+p { margin: 0; }
+a { color: var(--gold); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.pixel { image-rendering: pixelated; image-rendering: crisp-edges; display: block; width: 100%; height: auto; }
+.eyebrow { font-family: var(--f-pixel); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ember); }
+section { padding-block: clamp(3.5rem, 2.5rem + 4vw, 6.5rem); }
+.lede { max-width: 62ch; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 0 clamp(2.5rem, 2rem + 2vw, 4rem); }
+.hero-art { position: relative; max-width: 1280px; margin-inline: auto; }
+.hero-art img { aspect-ratio: 16 / 9; max-width: 100%; }
+.hero-art::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 28%;
+  background: linear-gradient(180deg, rgba(11, 16, 48, 0), var(--night));
+}
+.hero-copy { position: relative; z-index: 1; margin-top: clamp(-5rem, -6vw, -1.5rem); display: grid; gap: 1.1rem; justify-items: start; }
+.wordmark { font-size: var(--step-3); color: var(--gold); letter-spacing: 0.01em; text-shadow: 0 3px 0 rgba(0,0,0,0.45); }
+.tagline { font-family: var(--f-serif); font-style: italic; font-size: var(--step-1); color: var(--steam); }
+.hero-copy .lede { color: var(--steam); opacity: 0.86; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.4rem; }
+.badge {
+  display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.1rem;
+  border: 1px solid var(--brass); border-radius: 999px; background: rgba(0,0,0,0.35);
+  font-weight: 500;
+}
+.badge svg { width: 1.1rem; height: 1.1rem; fill: var(--steam); }
+.free { font-family: var(--f-pixel); font-size: 0.78rem; color: var(--night); background: var(--gold); padding: 0.55rem 0.8rem; border-radius: 6px; letter-spacing: 0.04em; }
+.platforms { font-size: var(--step--1); color: var(--muted); }
+
+/* Story */
+.story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.story .frames { display: grid; gap: 0.9rem; }
+.frame { border: 3px solid var(--brass); border-radius: 10px; overflow: hidden; background: var(--night); box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+.script { display: grid; gap: 0.9rem; margin-top: 1.4rem; max-width: 60ch; }
+.line { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); gap: 0.8rem; align-items: baseline; }
+.who { font-family: var(--f-pixel); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: right; }
+.who.tamsin { color: var(--ember); }
+.who.baron { color: #d95a4e; }
+.who.elara { color: var(--jewel); }
+.said { font-family: var(--f-serif); font-size: 1.12em; }
+.narr { color: var(--muted); font-style: italic; }
+
+/* Cast */
+.cast { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+.card { display: grid; gap: 0.7rem; align-content: start; }
+.card p { color: var(--muted); font-size: var(--step--1); }
+.card h3 { font-size: 1.45rem; }
+
+/* Toy */
+.toy-band { background: var(--plate); border-block: 1px solid var(--line); }
+.toy { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.toy-copy { display: grid; gap: 1rem; }
+.rules { display: grid; gap: 0.5rem; padding: 0; margin: 0; list-style: none; color: var(--muted); }
+.rules li { padding-left: 1.4rem; position: relative; }
+.rules li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.55rem; height: 0.55rem; background: var(--brass); transform: rotate(45deg); }
+.board-wrap { display: grid; gap: 0.9rem; }
+.board {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px;
+  padding: 10px; border: 3px solid var(--brass); border-radius: 12px; background: var(--soot);
+}
+.cell {
+  aspect-ratio: 1; border-radius: 8px; border: 0; padding: 0; margin: 0;
+  background: #2a241d; display: grid; place-items: center; cursor: pointer; color: var(--gold);
+  font: inherit; position: relative;
+}
+.cell:hover { background: #352d24; }
+.cell.block { background: repeating-linear-gradient(45deg, #2e2822 0 6px, #241f19 6px 12px); cursor: not-allowed; }
+.cell.fixed { cursor: default; background: #30271d; }
+.cell svg { width: 86%; height: 86%; }
+.gear-shape { fill: var(--brass); }
+.cell.on .gear-shape { fill: var(--gold); }
+.cell.motor .gear-shape { fill: var(--ember); }
+.cell.target .gear-shape { fill: #6e6253; }
+.cell.target.on .gear-shape { fill: var(--jewel); }
+.tag { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font-family: var(--f-pixel); font-size: 0.5rem; letter-spacing: 0.05em; color: var(--steam); pointer-events: none; }
+.spin-cw svg { animation: cw 2.4s linear infinite; }
+.spin-ccw svg { animation: ccw 2.4s linear infinite; }
+@keyframes cw { to { transform: rotate(360deg); } }
+@keyframes ccw { to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin-cw svg, .spin-ccw svg { animation: none; } }
+.toy-status { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; justify-content: space-between; }
+.spares { font-family: var(--f-pixel); font-size: 0.75rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.msg { color: var(--muted); min-height: 1.6em; }
+.msg.win { color: var(--jewel); }
+.reset {
+  font: 500 var(--step--1) var(--f-body); color: var(--steam); background: transparent;
+  border: 1px solid var(--brass); border-radius: 999px; padding: 0.45rem 0.95rem; cursor: pointer;
+}
+.reset:hover { background: rgba(184, 134, 47, 0.15); }
+
+/* Machines and screens */
+.machines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 3rem; margin-top: 1.5rem; }
+.machine { display: grid; gap: 0.5rem; }
+.machine p { color: var(--muted); }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.75rem, 2vw, 1.5rem); margin-top: 2.5rem; }
+.phone { display: grid; gap: 0.6rem; justify-items: center; margin: 0; }
+.phone img { width: 100%; max-width: 100%; aspect-ratio: 1320 / 2868; object-fit: cover; border-radius: 22px; border: 5px solid #2e2924; box-shadow: 0 14px 30px rgba(0,0,0,0.5); display: block; }
+.phone figcaption { font-size: var(--step--1); color: var(--muted); text-align: center; }
+
+/* Spire */
+.spire { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+.chapters { display: grid; gap: 1rem; border-left: 3px solid var(--brass); padding-left: clamp(1rem, 2.5vw, 1.75rem); }
+.chapter { display: grid; gap: 0.5rem; }
+.chapter-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+.chapter-head h3 { font-size: 1.5rem; }
+.chapter .sub { color: var(--muted); font-size: var(--step--1); }
+.pill { font-family: var(--f-pixel); font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.3rem 0.55rem; border-radius: 5px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.free { border-color: var(--gold); color: var(--night); background: var(--gold); }
+.pill.soon { border-style: dashed; }
+.floors { list-style: none; margin: 0.2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.35rem 1.25rem; }
+.floors li { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; gap: 0.6rem; align-items: baseline; padding-block: 0.3rem; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.floors .n { font-family: var(--f-pixel); font-size: 0.7rem; color: var(--brass); }
+.floors .par { font-size: var(--step--1); color: var(--muted); }
+.floors .boss { color: #e0705f; font-family: var(--f-pixel); font-size: 0.6rem; margin-right: 0.35rem; letter-spacing: 0.04em; }
+.chapter.dim h3 { color: var(--muted); }
+
+/* Fair */
+.fair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin-top: 2rem; }
+.fair div { display: grid; gap: 0.4rem; align-content: start; }
+.fair p { color: var(--muted); }
+.hints { display: grid; gap: 0.25rem; margin-top: 0.3rem; font-size: var(--step--1); }
+.hints span { color: var(--steam); }
+
+/* Closing */
+.closing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.closing .copy { display: grid; gap: 1rem; justify-items: start; }
+footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; color: var(--muted); font-size: var(--step--1); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; }
+
+@media (max-width: 860px) {
+  .story, .toy, .spire, .closing { grid-template-columns: minmax(0, 1fr); }
+  .cast { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fair { grid-template-columns: minmax(0, 1fr); }
+  .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .machines { grid-template-columns: minmax(0, 1fr); }
+  .floors { grid-template-columns: minmax(0, 1fr); }
+  .line { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .who { text-align: left; }
+  .cell .tag { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-art">
+    <img class="pixel" src="img/title_cast.png" width="320" height="180" alt="Night over the Clockwork Spire. Tamsin, with Cog the brass owl on her shoulder, raises a wrench. Baron Grimgear watches from a balcony, and Princess Elara is lit in a high window.">
+  </div>
+  <div class="wrap hero-copy">
+    <h1 class="wordmark">Clockwork Ascent</h1>
+    <p class="tagline">Climb the Spire. Solve every floor.</p>
+    <p class="lede">A pixel-art puzzle climb for iPhone, iPad and Mac. Mesh gears, route conveyor belts and work your way up a tower that appears on no map, floor by floor, to bring Princess Elara home.</p>
+    <div class="cta-row">
+      <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.2 1-4.1 2.5-1.8 3-.5 7.5 1.2 10 .8 1.2 1.8 2.6 3.1 2.5 1.3 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4zM14 5.2c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>Coming soon to the App Store</span>
+      <span class="free">Chapter 1 is free</span>
+    </div>
+    <p class="platforms">iPhone · iPad · Mac. No ads. No tracking.</p>
+  </div>
+</header>
+
+<main>
+  <section class="wrap story" aria-labelledby="story-h">
+    <div>
+      <p class="eyebrow">Festival of Lanterns, Aurelmoor</p>
+      <h2 id="story-h">The night the lanterns went dark</h2>
+      <div class="script">
+        <p class="line"><span class="who">Narrator</span><span class="narr">A thousand paper lights drift over the capital. Then the lanterns dim. Something huge and brass slides across the sky.</span></p>
+        <p class="line"><span class="who baron">The Baron</span><span class="said">“Good evening, Aurelmoor! I’m collecting something this kingdom has owed me for years.”</span></p>
+        <p class="line"><span class="who">Narrator</span><span class="narr">Iron arms close around the palace balcony. Princess Elara doesn’t scream. She throws a candlestick at the nearest claw.</span></p>
+        <p class="line"><span class="who elara">Elara</span><span class="said">“Whoever is watching: his towers always have a coal chute!”</span></p>
+        <p class="line"><span class="who tamsin">Tamsin</span><span class="said">“A tower nobody knew about, and a princess nobody is chasing. So. Me, then.”</span></p>
+      </div>
+    </div>
+    <div class="frames">
+      <div class="frame"><img class="pixel" src="img/c01_intro_airship.png" width="320" height="180" alt="The Baron's brass airship glows over the rooftops of Aurelmoor."></div>
+      <div class="frame"><img class="pixel" src="img/c02_outro_grate.png" width="320" height="180" alt="Tamsin and Cog stand beneath a barred grate high in the Spire, where Elara's face appears."></div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="cast-h">
+    <p class="eyebrow">The climbers, and the reason they climb</p>
+    <h2 id="cast-h">Who you’ll meet in the Spire</h2>
+    <div class="cast">
+      <article class="card">
+        <div class="frame"><img class="pixel" src="img/c01_intro_festival_tamsin.png" width="320" height="180" alt="Tamsin on a rooftop at the lantern festival, goggles up, one fist raised."></div>
+        <h3>Tamsin</h3>
+        <p>A young mechanic who spent four hours oiling hinges for a roof seat at the festival. She goes in through the coal chute with a wrench and a lamp on her goggle band.</p>
+      </article>
+      <article class="card">
+        <div class="frame"><img class="pixel" src="img/c01_p04_cog_wakes.png" width="320" height="180" alt="Cog, a small brass owl, flares his wings beside Tamsin in the foundry."></div>
+        <h3>Cog</h3>
+        <p>A small brass owl Tamsin finds behind a boiler plate, wings jammed. Once mended he rides her shoulder and offers hints when a floor has you stuck.</p>
+      </article>
+      <article class="card">
+        <div class="frame"><img class="pixel" src="img/c01_intro_balcony_elara.png" width="320" height="180" alt="Princess Elara on the palace balcony, reaching out as an iron claw descends."></div>
+        <h3>Princess Elara</h3>
+        <p>Carried off from her own balcony, she leaves a trail of notes, ciphers and lantern signals for whoever is brave enough to follow.</p>
+      </article>
+      <article class="card">
+        <div class="frame"><img class="pixel" src="img/c01_p08_furnace.png" width="320" height="180" alt="Warden Bellows, a furnace machine, glows over a heap of coal while Tamsin faces it."></div>
+        <h3>Baron Grimgear</h3>
+        <p>The man behind the airship. Each chapter of his Spire ends with one of his Wardens: great machines like Bellows, a furnace that guards the Foundry.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="toy-band" aria-labelledby="toy-h">
+    <div class="wrap toy">
+      <div class="toy-copy">
+        <p class="eyebrow">Try a floor</p>
+        <h2 id="toy-h">Wake the lift</h2>
+        <p class="lede">Every floor is a stalled machine. This one is a tiny version of the first chapter. The motor on the left is turning. Get its power to the lift wheel on the right.</p>
+        <ul class="rules">
+          <li>Tap an empty socket to place a spare gear. Tap it again to take it back.</li>
+          <li>Gears that touch side by side mesh and turn in opposite directions.</li>
+          <li>You have six spare gears, and the rubble in the middle won’t take one.</li>
+        </ul>
+      </div>
+      <div class="board-wrap">
+        <div class="board" id="board" role="grid" aria-label="Gear board, 3 rows by 6 columns"></div>
+        <div class="toy-status">
+          <span class="spares" id="spares">Spare gears: 6</span>
+          <button class="reset" id="reset" type="button">Restart</button>
+        </div>
+        <p class="msg" id="msg" aria-live="polite">The motor is turning. The lift wheel is still.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="mach-h">
+    <p class="eyebrow">Season 1: The Clockwork Spire</p>
+    <h2 id="mach-h">Two machines, sixteen floors</h2>
+    <div class="machines">
+      <div class="machine">
+        <h3>Gears</h3>
+        <p>The Foundry teaches you to read a gear train. Mesh gears to carry power across the floor, mind which way each one turns, and free axles that rust has locked.</p>
+      </div>
+      <div class="machine">
+        <h3>Conveyor belts</h3>
+        <p>The Cargo Lifts add belts that carry crates, one-way plates and counterweights. Later floors drive the belts with gears, so both machines have to work together.</p>
+      </div>
+    </div>
+    <div class="phones">
+      <figure class="phone"><img src="img/phone-02-gears.jpg" width="560" height="1217" alt="Locked Axles, a gear puzzle with a gold gear train running across the board." loading="lazy"><figcaption>Locked Axles</figcaption></figure>
+      <figure class="phone"><img src="img/phone-04-belts.jpg" width="560" height="1217" alt="Geared Belts, where a row of gears drives two conveyor belts carrying crates." loading="lazy"><figcaption>Geared Belts</figcaption></figure>
+      <figure class="phone"><img src="img/phone-06-hints.jpg" width="560" height="1217" alt="Cog's hint sheet offering a Nudge, an Insight and a Step." loading="lazy"><figcaption>Cog’s hints</figcaption></figure>
+      <figure class="phone"><img src="img/phone-07-map.jpg" width="560" height="1217" alt="The Spire map with Chapter 1 cleared and Chapter 2 under way." loading="lazy"><figcaption>The Spire map</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="wrap spire" aria-labelledby="spire-h">
+    <div class="copy">
+      <p class="eyebrow">The map, top to bottom</p>
+      <h2 id="spire-h">Eight floors and one Warden per chapter</h2>
+      <p class="lede" style="margin-top:1rem">Each floor has a par, the number of moves a master mechanic needs. Solve at par to earn the floor’s Mastery Cog. New chapters climb higher with new machines.</p>
+    </div>
+    <div class="chapters">
+      <div class="chapter dim">
+        <div class="chapter-head"><h3>Chapter 4 · The Boiler Crown</h3><span class="pill soon">Coming soon</span></div>
+        <p class="sub">Steam, brass pipes and a storm outside</p>
+      </div>
+      <div class="chapter dim">
+        <div class="chapter-head"><h3>Chapter 3 · The Lantern Gallery</h3><span class="pill soon">Coming soon</span></div>
+        <p class="sub">Stained glass and dusk light</p>
+      </div>
+      <div class="chapter">
+        <div class="chapter-head"><h3>Chapter 2 · The Cargo Lifts</h3><span class="pill">Season 1</span></div>
+        <ol class="floors" reversed>
+          <li><span class="n">8</span><span><span class="boss">BOSS</span>Warden Haul</span><span class="par">Par 35</span></li>
+          <li><span class="n">7</span><span>Freight Sort</span><span class="par">Par 26</span></li>
+          <li><span class="n">6</span><span>Elara’s Signal</span><span class="par">Par 21</span></li>
+          <li><span class="n">5</span><span>Geared Belts</span><span class="par">Par 10</span></li>
+          <li><span class="n">4</span><span>Counterweight</span><span class="par">Par 18</span></li>
+          <li><span class="n">3</span><span>No Way Back</span><span class="par">Par 17</span></li>
+          <li><span class="n">2</span><span>Belt Drive</span><span class="par">Par 8</span></li>
+          <li><span class="n">1</span><span>Heavy Lifting</span><span class="par">Par 13</span></li>
+        </ol>
+      </div>
+      <div class="chapter">
+        <div class="chapter-head"><h3>Chapter 1 · The Foundry</h3><span class="pill free">Free</span></div>
+        <ol class="floors" reversed>
+          <li><span class="n">8</span><span><span class="boss">BOSS</span>Warden Bellows</span><span class="par">Par 9</span></li>
+          <li><span class="n">7</span><span>The Clutch</span><span class="par">Par 4</span></li>
+          <li><span class="n">6</span><span>Locked Axles</span><span class="par">Par 7</span></li>
+          <li><span class="n">5</span><span>Gear Ratio</span><span class="par">Par 3</span></li>
+          <li><span class="n">4</span><span>Mending Cog</span><span class="par">Par 4</span></li>
+          <li><span class="n">3</span><span>Spare Parts</span><span class="par">Par 5</span></li>
+          <li><span class="n">2</span><span>Turnabout</span><span class="par">Par 1</span></li>
+          <li><span class="n">1</span><span>Coal Chute</span><span class="par">Par 2</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="fair-h">
+    <p class="eyebrow">How it’s sold</p>
+    <h2 id="fair-h">Fair to play, private by default</h2>
+    <div class="fair">
+      <div>
+        <h3>Start free</h3>
+        <p>All eight floors of the Foundry, its story and its Warden are free. Unlock the rest of Season 1 in the app when you’re ready to keep climbing.</p>
+      </div>
+      <div>
+        <h3>Hints you choose</h3>
+        <p>Cog offers three kinds of help on every floor, and you decide how much to take.</p>
+        <p class="hints"><span>Nudge · free</span><span>Insight · 25 coins</span><span>Step · 1 jewel</span></p>
+      </div>
+      <div>
+        <h3>Nothing leaves your device</h3>
+        <p>No ads, no accounts, no analytics and no tracking. Your progress stays on your iPhone, iPad or Mac. Purchases go through the App Store.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap closing" aria-labelledby="close-h">
+    <div class="frame"><img class="pixel" src="img/c02_intro_lift_tamsin.png" width="320" height="180" alt="Tamsin hauls on a lever beside a cargo lift cage, ready to go up." loading="lazy"></div>
+    <div class="copy">
+      <h2 id="close-h">The coal chute is open</h2>
+      <p class="lede">Clockwork Ascent is coming to the App Store for iPhone, iPad and Mac. Chapter 1 is free to play.</p>
+      <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.2 1-4.1 2.5-1.8 3-.5 7.5 1.2 10 .8 1.2 1.8 2.6 3.1 2.5 1.3 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-4zM14 5.2c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>Coming soon to the App Store</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mike Kostersitz. Clockwork Ascent for iPhone, iPad and Mac.</span>
+    <span class="links"><a href="/support-policy/">Support</a> · <a href="/privacy-policy/">Privacy policy</a> · <a href="/">All apps</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ROWS = 3, COLS = 6, SPARES = 6;
+  var MOTOR = "1,0", TARGET = "1,5";
+  var BLOCKED = { "1,2": true, "1,3": true };
+  var board = document.getElementById("board");
+  var sparesEl = document.getElementById("spares");
+  var msgEl = document.getElementById("msg");
+  var placed = {};
+
+  function gearPath(teeth, rOut, rIn, rHole) {
+    var d = "", step = Math.PI * 2 / teeth;
+    for (var i = 0; i < teeth; i++) {
+      var a = i * step;
+      var pts = [[rIn, a], [rOut, a + step * 0.15], [rOut, a + step * 0.45], [rIn, a + step * 0.6]];
+      for (var j = 0; j < pts.length; j++) {
+        var x = (50 + pts[j][0] * Math.cos(pts[j][1])).toFixed(2), y = (50 + pts[j][0] * Math.sin(pts[j][1])).toFixed(2);
+        d += (i === 0 && j === 0 ? "M" : "L") + x + " " + y + " ";
+      }
+    }
+    d += "Z M" + (50 + rHole) + " 50 A" + rHole + " " + rHole + " 0 1 0 " + (50 - rHole) + " 50 A" + rHole + " " + rHole + " 0 1 0 " + (50 + rHole) + " 50 Z";
+    return d;
+  }
+  var GEAR = gearPath(12, 46, 37, 11);
+  function gearSVG() {
+    return '<svg viewBox="0 0 100 100" aria-hidden="true"><path class="gear-shape" fill-rule="evenodd" d="' + GEAR + '"/></svg>';
+  }
+
+  function key(r, c) { return r + "," + c; }
+  function hasGear(k) { return k === MOTOR || k === TARGET || placed[k]; }
+
+  function driven() {
+    var seen = {}, queue = [MOTOR];
+    seen[MOTOR] = true;
+    while (queue.length) {
+      var cur = queue.shift().split(",").map(Number);
+      var nbrs = [[cur[0] - 1, cur[1]], [cur[0] + 1, cur[1]], [cur[0], cur[1] - 1], [cur[0], cur[1] + 1]];
+      for (var i = 0; i < nbrs.length; i++) {
+        var r = nbrs[i][0], c = nbrs[i][1];
+        if (r < 0 || c < 0 || r >= ROWS || c >= COLS) continue;
+        var k = key(r, c);
+        if (!seen[k] && hasGear(k)) { seen[k] = true; queue.push(k); }
+      }
+    }
+    return seen;
+  }
+
+  function render() {
+    var on = driven(), used = Object.keys(placed).length;
+    for (var r = 0; r < ROWS; r++) {
+      for (var c = 0; c < COLS; c++) {
+        var k = key(r, c), el = board.querySelector('[data-k="' + k + '"]');
+        var cw = ((r + c) % 2) === 1; // same parity as the motor turns clockwise
+        el.classList.toggle("on", !!on[k] && hasGear(k));
+        el.classList.toggle("spin-cw", !!on[k] && hasGear(k) && cw);
+        el.classList.toggle("spin-ccw", !!on[k] && hasGear(k) && !cw);
+        if (k !== MOTOR && k !== TARGET && !BLOCKED[k]) {
+          el.innerHTML = placed[k] ? gearSVG() : "";
+          el.setAttribute("aria-label", "Socket row " + (r + 1) + ", column " + (c + 1) + (placed[k] ? ", gear placed" : ", empty"));
+        }
+      }
+    }
+    sparesEl.textContent = "Spare gears: " + (SPARES - used);
+    if (on[TARGET]) {
+      msgEl.textContent = "The lift wakes and the wheel turns. Floor solved with " + used + " gear" + (used === 1 ? "" : "s") + ".";
+      msgEl.classList.add("win");
+    } else {
+      msgEl.classList.remove("win");
+      msgEl.textContent = used === SPARES ? "Out of spare gears. Take one back, or restart." : "The motor is turning. The lift wheel is still.";
+    }
+  }
+
+  for (var r = 0; r < ROWS; r++) {
+    for (var c = 0; c < COLS; c++) {
+      var k = key(r, c), b = document.createElement("button");
+      b.type = "button"; b.className = "cell"; b.dataset.k = k; b.id = "cell-" + r + "-" + c;
+      if (k === MOTOR) { b.className += " fixed motor"; b.innerHTML = gearSVG() + '<span class="tag">Motor</span>'; b.setAttribute("aria-label", "Motor, always turning"); b.setAttribute("aria-disabled", "true"); }
+      else if (k === TARGET) { b.className += " fixed target"; b.innerHTML = gearSVG() + '<span class="tag">Lift</span>'; b.setAttribute("aria-label", "Lift wheel"); b.setAttribute("aria-disabled", "true"); }
+      else if (BLOCKED[k]) { b.className += " block"; b.setAttribute("aria-label", "Rubble, no socket"); b.setAttribute("aria-disabled", "true"); }
+      board.appendChild(b);
+    }
+  }
+  board.addEventListener("click", function (e) {
+    var b = e.target.closest(".cell");
+    if (!b) return;
+    var k = b.dataset.k;
+    if (k === MOTOR || k === TARGET || BLOCKED[k]) return;
+    if (placed[k]) delete placed[k];
+    else if (Object.keys(placed).length < SPARES) placed[k] = true;
+    render();
+  });
+  document.getElementById("reset").addEventListener("click", function () { placed = {}; render(); });
+  render();
+})();
+</script>
+</body>
+</html>
