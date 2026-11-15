@@ -25,6 +25,7 @@ Platform availability may vary by version. Check individual store listings for t
 
 ## Get Help or Report a Bug
 
+- [Clockwork Ascent help]({{ '/clockwork-ascent/help/' | relative_url }}) and [FAQ]({{ '/clockwork-ascent/faq/' | relative_url }})
 - [Contact support]({{ '/support-policy/#contact' | relative_url }})
 - [Report a bug]({{ '/bug-reports/' | relative_url }})
 
