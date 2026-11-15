@@ -7,7 +7,7 @@ title: Privacy Policy
 
 **Last updated:** November 14, 2026
 
-This policy describes how **Mike Kostersitz** ("we", "us") handles information when you use our apps and games: **Clockwork Accent**, **NullRoute**, and **Cloud Media Player** (collectively, the "Apps"). Each app's specific data practices are noted where they differ.
+This policy describes how **Mike Kostersitz** ("we", "us") handles information when you use our apps and games: **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player** (collectively, the "Apps"). Each app's specific data practices are noted where they differ.
 
 ## Who is responsible
 
@@ -29,9 +29,11 @@ Mike Kostersitz is responsible for information covered by this policy. Contact u
 - **Cloud storage access:** Cloud Media Player connects to third-party cloud storage services (such as iCloud Drive, Dropbox, or others you authorize) using the credentials and permissions you grant. We access only the files and folders you direct the app to use. We do not store your cloud provider credentials; authentication is handled by the provider's own OAuth flow.
 - **Local media library:** Playback history and playlists you create are stored locally on your device. On Apple platforms, they may also sync to your personal iCloud account if you enable it. We do not receive or store this data on our servers.
 
-### Clockwork Accent — additional data
+### Clockwork Ascent — additional data
 
-- **Game progress:** Save data is stored locally on your device. On Apple platforms, it can optionally sync via your personal iCloud account. We do not receive your save data.
+- **Game progress:** Your progress and settings are saved in the app's own storage on your device. They are not synced through iCloud and are never sent to us. If your device backs up apps to iCloud or your computer, Apple may include this data in that backup under Apple's own terms. Deleting the app deletes it.
+- **In-app purchases:** Purchases and subscriptions are handled entirely by Apple through the App Store. We never see your payment details or Apple Account. Apple tells the app only which products you own, and the app keeps a record of that on your device so unlocked chapters work offline.
+- **No accounts, ads or analytics:** Clockwork Ascent has no sign-in, shows no ads, and contains no analytics, advertising or tracking code. Apart from the App Store purchase system, the game does not connect to the internet.
 
 ### NullRoute — additional data
 

@@ -7,11 +7,11 @@ title: Support Policy
 
 **Last updated:** November 14, 2026
 
-This page explains how to get help with **Clockwork Accent**, **NullRoute**, and **Cloud Media Player** from **Mike Kostersitz**.
+This page explains how to get help with **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player** from **Mike Kostersitz**.
 
 ## Contact {#contact}
 
-Email **[support@kostersitz.com](mailto:support@kostersitz.com)** with the subject line starting with the app name (e.g., "Clockwork Accent — ").
+Email **[support@kostersitz.com](mailto:support@kostersitz.com)** with the subject line starting with the app name (e.g., "Clockwork Ascent — ").
 
 **Support hours:** Email support; replies are not available in real time.
 
@@ -25,12 +25,12 @@ Do not send passwords, payment card numbers, Apple ID or Microsoft account crede
 
 - Installation and launch problems
 - Crashes and unexpected behavior
-- Saving and loading progress (Clockwork Accent, NullRoute)
+- Saving and loading progress (Clockwork Ascent, NullRoute)
 - iCloud sync issues (Apple platforms only)
 - Cloud storage connection issues (Cloud Media Player)
 - Supported file formats and playback problems (Cloud Media Player)
 - Accessibility questions
-- General gameplay questions (Clockwork Accent, NullRoute)
+- General gameplay questions (Clockwork Ascent, NullRoute)
 
 **Purchases, subscriptions, and refunds** are handled by the store where you purchased the app. Contact Apple Support at [apple.com/support](https://support.apple.com) for App Store purchases, or Microsoft Support for Microsoft Store purchases. We cannot process refunds directly.
 
@@ -60,8 +60,9 @@ We handle support requests as described in the [Privacy Policy]({{ '/privacy-pol
 
 ## App-specific notes
 
-### Clockwork Accent
-- Available on iOS and iPadOS. Save data is stored locally and can optionally sync via iCloud. If you switch devices, enable iCloud Drive and wait for sync before playing on the new device to avoid overwriting progress.
+### Clockwork Ascent
+- Available on iPhone, iPad and Mac. Progress is saved on each device and does not sync between devices through iCloud. Restoring a device backup brings its progress back.
+- Purchases are tied to your Apple Account. On a new device, use **Restore Purchases** on the game's Store screen to unlock the chapters you own.
 
 ### NullRoute
 - Available on iOS, iPadOS, macOS, and Windows. Settings and progress are stored locally. On Apple platforms, they can optionally sync via iCloud. On Windows, saves are stored locally only — there is no cross-platform sync between Apple and Windows at this time.
