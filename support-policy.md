@@ -63,6 +63,7 @@ We handle support requests as described in the [Privacy Policy]({{ '/privacy-pol
 ### Clockwork Ascent
 - Available on iPhone, iPad and Mac. Progress is saved on each device and does not sync between devices through iCloud. Restoring a device backup brings its progress back.
 - Purchases are tied to your Apple Account. On a new device, use **Restore Purchases** on the game's Store screen to unlock the chapters you own.
+- How to play, hints, purchases and Mac shortcuts: see the [Clockwork Ascent Help]({{ '/clockwork-ascent/help/' | relative_url }}) and [FAQ]({{ '/clockwork-ascent/faq/' | relative_url }}).
 
 ### NullRoute
 - Available on iOS, iPadOS, macOS, and Windows. Settings and progress are stored locally. On Apple platforms, they can optionally sync via iCloud. On Windows, saves are stored locally only — there is no cross-platform sync between Apple and Windows at this time.
