@@ -17,7 +17,7 @@ A story-driven logic puzzle game for iPhone, iPad and Mac. Tamsin, a young mecha
 Chapter 1, The Foundry, is free: all eight floors, their story and the Warden at the top. To keep climbing, unlock Season 1 or get a Release Pass in the game's Store. There are no ads.
 
 **How long is Season 1?**
-Two chapters of eight floors each, sixteen floors in all, plus the story between them. Early floors take a few minutes. The Wardens at the top of each chapter take longer.
+Two chapters of eight floors each: sixteen floors and 42 puzzle rooms, plus the story between them. Every floor has two rooms, and each Warden floor has six build-up rooms before the Warden. Early rooms take a few minutes; the Wardens take longer.
 
 **Is there a time limit, lives or energy?**
 No. There are no timers, lives or energy on any floor. Undo, Redo and Restart are always available.
@@ -31,22 +31,31 @@ Teens and adults who like logic puzzles. The story has adventure and a villain b
 ## Puzzles and hints
 
 **I'm stuck. What can I do?**
-Ask Cog. A Nudge is free on every floor, an Insight costs 25 coins and a Step costs 1 jewel. If you have used every hint, Cog offers another free Nudge after 10 minutes on the floor. See [Hints from Cog]({{ '/clockwork-ascent/help/#hints-from-cog' | relative_url }}).
+Ask Cog. A Nudge is free in every room, an Insight costs 25 coins and a Step costs 1 jewel. If you have used every hint, Cog offers another free Nudge after 10 minutes in the room. See [Hints from Cog]({{ '/clockwork-ascent/help/#hints-from-cog' | relative_url }}).
 
 **Why does a gear turn the wrong way?**
-Gears that touch turn in opposite directions, and so do a crank or motor and the gear beside it. A gear's direction depends on which colour of square it sits on, so move the chain onto the other colour or add one more gear.
+Gears that touch turn in opposite directions, and so do a crank or motor and the gear beside it. A closed clutch flips the direction too. A gear's direction depends on which colour of square it sits on, so move the chain onto the other colour or add one more gear. The wheel you're powering shows the speed and direction it needs, and turns red while it's wrong.
 
 **What is par, and what is a Mastery Cog?**
-Par is the number of moves a master mechanic needs. Each floor has a Mastery Cog for meeting its challenge: finishing within par, collecting every coin, or solving without hints. Mastery Cogs earn jewels. Using a paid hint (Insight or Step) means that attempt can't earn the Mastery Cog, but you can replay the floor for it at any time.
+Par is the fewest moves that finish the room and collect every coin and jewel on the board. In almost every room, the Mastery Cog is for collecting everything within par; a few rooms ask you to solve without hints instead. Mastery Cogs earn jewels. Using a paid hint (Insight or Step) means that attempt can't earn the Mastery Cog, but you can replay the floor for it at any time.
 
 **Do I have to collect the coins on a board?**
-No. Coins are optional and never block the solution. On some floors, collecting every coin is the Mastery Cog challenge.
+Not to finish the room: coins never block the solution. But par counts the moves to collect them, so you need every coin and jewel for the Mastery Cog.
 
 **Can I buy coins or jewels?**
 No. Coins and jewels are earned by playing. Nothing in the game is random and there are no loot boxes.
 
+**Why won't a crate go onto the belt?**
+A crate can't be pushed onto a belt against its arrow, even when the belt is stopped. If the belts point the wrong way, look for the crank that drives them and turn it to reverse them.
+
+**What is the Workshop?**
+After you clear the Foundry, Tamsin opens a repair workshop. Each week a new client brings a machine to fix: seven puzzles, one opening per day. The first puzzle each week is free; a Release Pass opens all seven. See [Tamsin's Workshop]({{ '/clockwork-ascent/help/#tamsins-workshop' | relative_url }}).
+
+**Can I zoom in on the board?**
+Yes, on iPhone and iPad: pinch with two fingers to zoom and drag with two fingers to look around.
+
 **Are all puzzles solvable?**
-Yes. Every floor has been checked by a solver, so each one has a solution that fits the pieces you are given.
+Yes. Every room has been checked by a solver, so each one has a solution that fits the pieces you are given.
 
 ## Purchases
 
