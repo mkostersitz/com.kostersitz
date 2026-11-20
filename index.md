@@ -13,7 +13,7 @@ Find policy information and support for the games and apps published by **Mike K
 |-----|----------|-------------|
 | [Clockwork Ascent]({{ '/clockwork-ascent/' | relative_url }}) | Game | iOS, iPadOS, macOS |
 | [NullRoute](#) | Game | iOS, iPadOS, macOS |
-| [Cloud Media Player](#) | Utility | Windows |
+| [CloudAmp]({{ '/cloudamp/' | relative_url }}) | Music player | Windows |
 
 Platform availability may vary by version. Check individual store listings for the most current information.
 

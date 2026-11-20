@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://apps.kostersitz.com/cloudamp/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CloudAmp">
+<meta property="og:description" content="Play your personal music collection straight from OneDrive on Windows. Nested browsing, roaming playlists and seven retro visualizers. No ads, no tracking.">
+<meta property="og:url" content="https://apps.kostersitz.com/cloudamp/">
+<meta property="og:image" content="https://apps.kostersitz.com/cloudamp/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>CloudAmp</title>
+<meta name="description" content="CloudAmp plays your personal music collection straight from OneDrive on Windows — nested browsing, roaming playlists and seven retro visualizers. No ads, no tracking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* CloudAmp — a dark, cloud-lit player page. Single dark world by design, matching the app's Mica theme. */
+:root {
+  --night: #0b1020;
+  --dusk: #10131e;
+  --soot: #070810;
+  --panel: #141a28;
+  --panel-2: #1b2232;
+  --green: #37e6a0;
+  --mint: #8cf0a8;
+  --cyan: #4bc5e8;
+  --text: #e7ecf4;
+  --muted: #9aa6bc;
+  --dim: #6b7688;
+  --line: rgba(90, 220, 170, 0.16);
+
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --step--1: clamp(0.84rem, 0.8rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1.02rem, 0.97rem + 0.25vw, 1.14rem);
+  --step-1: clamp(1.25rem, 1.12rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.3rem);
+  --step-3: clamp(2.6rem, 1.9rem + 3.3vw, 4.6rem);
+
+  --wrap: 1120px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+img { max-width: 100%; }
+html { background: var(--soot); }
+body {
+  background: linear-gradient(180deg, var(--night) 0, var(--dusk) 40rem, var(--soot) 86rem, var(--soot) 100%);
+  color: var(--text);
+  font: 400 var(--step-0)/1.65 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-2); color: var(--text); }
+h3 { font-size: var(--step-1); color: var(--text); }
+p { margin: 0; }
+a { color: var(--green); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+.eyebrow { font-family: var(--f-display); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); }
+section { padding-block: clamp(3.25rem, 2.5rem + 3.5vw, 6rem); }
+.lede { max-width: 60ch; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: clamp(2.75rem, 2rem + 3vw, 5rem) clamp(1.5rem, 1rem + 2vw, 3rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(1.75rem, 4vw, 3.5rem); align-items: center; }
+.hero-copy { display: grid; gap: 1.15rem; justify-items: start; }
+.brand { display: flex; align-items: center; gap: 0.9rem; }
+.brand img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 10px 26px rgba(0,0,0,0.45); }
+.wordmark { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.02em;
+  background: linear-gradient(92deg, var(--green), var(--mint)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tagline { font-size: var(--step-1); color: var(--text); font-weight: 500; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.3rem; }
+.badge {
+  display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.1rem;
+  border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,0.03);
+  font-weight: 500; color: var(--text);
+}
+.badge svg { width: 1.15rem; height: 1.15rem; fill: var(--text); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { font-size: var(--step--1); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.7rem; }
+.platforms { font-size: var(--step--1); color: var(--muted); }
+.hero-shot { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+.hero-shot img { display: block; width: 100%; height: auto; }
+
+/* Feature band / demo */
+.band { background: var(--panel); border-block: 1px solid var(--line); }
+.demo { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.demo-copy { display: grid; gap: 1rem; }
+.viz-wrap { display: grid; gap: 0.8rem; }
+.viz-stage { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #05060c; aspect-ratio: 16 / 9; }
+.viz-stage canvas { display: block; width: 100%; height: 100%; }
+.viz-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: space-between; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; }
+.seg button {
+  font: 500 var(--step--1) var(--f-body); color: var(--muted); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.85rem; cursor: pointer;
+}
+.seg button:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.seg button[aria-pressed="true"] { color: var(--night); background: var(--green); border-color: var(--green); font-weight: 600; }
+.viz-note { color: var(--muted); font-size: var(--step--1); min-height: 1.4em; }
+
+/* Split sections */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.split.flip .shot { order: -1; }
+.split .copy { display: grid; gap: 1rem; justify-items: start; }
+.shot { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+.shot img { display: block; width: 100%; height: auto; }
+.ticks { display: grid; gap: 0.5rem; padding: 0; margin: 0; list-style: none; color: var(--muted); }
+.ticks li { padding-left: 1.5rem; position: relative; }
+.ticks li::before { content: ""; position: absolute; left: 0; top: 0.58em; width: 0.6rem; height: 0.6rem; border-radius: 2px;
+  background: linear-gradient(135deg, var(--green), var(--cyan)); }
+
+/* Feature grid */
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-top: 2rem; }
+.feature { display: grid; gap: 0.5rem; align-content: start; }
+.feature h3 { font-size: 1.2rem; }
+.feature p { color: var(--muted); font-size: var(--step--1); }
+.feature .ic { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 10px;
+  background: rgba(55, 230, 160, 0.12); border: 1px solid var(--line); margin-bottom: 0.25rem; }
+.feature .ic svg { width: 1.3rem; height: 1.3rem; stroke: var(--green); fill: none; stroke-width: 1.8; }
+
+/* Visualizer gallery */
+.viz-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 1.5rem; margin-top: 1.25rem; padding: 0; list-style: none; color: var(--muted); }
+.viz-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--line); display: flex; gap: 0.6rem; align-items: baseline; }
+.viz-list .k { color: var(--cyan); font-family: var(--f-display); font-weight: 600; font-size: var(--step--1); }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+.gallery figure { margin: 0; display: grid; gap: 0.6rem; }
+.gallery img { border: 1px solid var(--line); border-radius: 12px; display: block; width: 100%; height: auto; box-shadow: 0 14px 34px rgba(0,0,0,0.45); }
+.gallery figcaption { color: var(--muted); font-size: var(--step--1); }
+
+/* Privacy */
+.privacy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin-top: 2rem; }
+.privacy div { display: grid; gap: 0.4rem; align-content: start; }
+.privacy p { color: var(--muted); }
+
+/* Closing */
+.closing { text-align: center; display: grid; gap: 1.25rem; justify-items: center; }
+footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; color: var(--muted); font-size: var(--step--1); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; }
+
+@media (max-width: 880px) {
+  .hero-grid, .demo, .split { grid-template-columns: minmax(0, 1fr); }
+  .split.flip .shot { order: 0; }
+  .features, .privacy { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .gallery, .viz-list { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="brand">
+        <img src="img/icon-300.png" width="64" height="64" alt="CloudAmp app icon, four green equalizer bars on a dark rounded tile.">
+        <h1 class="wordmark">CloudAmp</h1>
+      </div>
+      <p class="tagline">Your OneDrive music, anywhere.</p>
+      <p class="lede">CloudAmp plays your personal music collection straight from OneDrive on Windows — no syncing to disk, no copies to manage. Sign in, point it at the folders where your music already lives, and your whole library is ready to browse and stream.</p>
+      <div class="cta-row">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
+          Coming soon to the Microsoft Store
+        </span>
+      </div>
+      <div class="chips">
+        <span class="chip">Windows 10 &amp; 11</span>
+        <span class="chip">x64 &amp; ARM64</span>
+        <span class="chip">No ads</span>
+        <span class="chip">No tracking</span>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="img/screen-library.png" width="1598" height="918" alt="CloudAmp's library grouped by artist, with thousands of tracks and collapsible headers.">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="band" aria-labelledby="demo-h">
+    <div class="wrap demo">
+      <div class="demo-copy">
+        <p class="eyebrow">Try it</p>
+        <h2 id="demo-h">Seven real-time visualizers</h2>
+        <p class="lede">CloudAmp brings back the golden age of desktop media players. Every visualizer reacts to the music as it plays. Here's a live taste — switch styles and watch it move.</p>
+        <p class="viz-note" id="vizNote" aria-live="polite">Winamp-style spectrum. Pick another style below.</p>
+      </div>
+      <div class="viz-wrap">
+        <div class="viz-stage"><canvas id="viz" width="640" height="360" role="img" aria-label="A live, decorative audio visualizer."></canvas></div>
+        <div class="viz-controls">
+          <div class="seg" role="group" aria-label="Visualizer style">
+            <button type="button" data-mode="spectrum" aria-pressed="true">Spectrum</button>
+            <button type="button" data-mode="scope" aria-pressed="false">Oscilloscope</button>
+            <button type="button" data-mode="bars" aria-pressed="false">WMP Bars</button>
+            <button type="button" data-mode="plasma" aria-pressed="false">Plasma</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap split" aria-labelledby="browse-h">
+    <div class="copy">
+      <p class="eyebrow">Your library, the way you filed it</p>
+      <h2 id="browse-h">Browse the way you already organize</h2>
+      <p class="lede">CloudAmp reads your existing folders and tags, so your music shows up the way you keep it. Collapsible headers keep huge libraries easy to move through, and search finds anything as you type.</p>
+      <ul class="ticks">
+        <li>Group by Artist &rarr; Album, or drill down Genre &rarr; Artist &rarr; Album</li>
+        <li>Instant search across titles, artists and albums</li>
+        <li>Sort each view, and flatten to a single list when you want</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="img/screen-nested.png" width="1598" height="918" alt="An artist expanded to show its albums and tracks nested underneath."></div>
+  </section>
+
+  <section class="wrap" aria-labelledby="feat-h">
+    <p class="eyebrow">What's inside</p>
+    <h2 id="feat-h">A real player, built for a cloud library</h2>
+    <div class="features">
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 1 1 .9-7.9A5.5 5.5 0 0 1 18.5 11 3.5 3.5 0 0 1 18 18H7z"/></svg></span>
+        <h3>Stream from OneDrive</h3>
+        <p>Tracks play on demand straight from the cloud. Nothing is copied to your PC, and your files are never moved or changed.</p>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h11M4 12h11M4 18h7"/><circle cx="19" cy="16" r="2.5"/><path d="M21.5 16V8l-4 1"/></svg></span>
+        <h3>Playlists that roam</h3>
+        <p>Build playlists and drag them into order. Your library and playlists back up to your own OneDrive, so they survive a reinstall and follow you to any PC.</p>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+        <h3>Multiple folders</h3>
+        <p>Add as many source folders as you like and rescan any time you add new music. CloudAmp fills in artist and album from your folder layout.</p>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19V5m0 0l3 3M6 5L3 8M18 5v14m0 0l3-3m-3 3l-3-3"/></svg></span>
+        <h3>Shuffle &amp; repeat</h3>
+        <p>Full playback controls — shuffle, repeat one or all, and a clean now-playing bar with album art pulled from your tags and folders.</p>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3l2-6 4 12 3-9 2 3h5"/></svg></span>
+        <h3>Retro visualizers</h3>
+        <p>Seven live visualizers — Winamp spectrum &amp; oscilloscope, WMP bars &amp; waves, plus Tunnel, Starfield and Plasma. Pop them out full-screen.</p>
+      </div>
+      <div class="feature">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 9h16"/></svg></span>
+        <h3>Native Windows design</h3>
+        <p>A fluent, dark-themed interface with Mica material that feels at home on Windows 11, running natively on both x64 and ARM64 PCs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="viz-h">
+    <div class="wrap">
+      <p class="eyebrow">Let the music drive the screen</p>
+      <h2 id="viz-h">All seven styles</h2>
+      <ul class="viz-list">
+        <li><span class="k">01</span> Winamp — Spectrum</li>
+        <li><span class="k">02</span> Winamp — Oscilloscope</li>
+        <li><span class="k">03</span> WMP — Bars</li>
+        <li><span class="k">04</span> WMP — Waves</li>
+        <li><span class="k">05</span> Tunnel</li>
+        <li><span class="k">06</span> Starfield</li>
+        <li><span class="k">07</span> Plasma</li>
+      </ul>
+      <div class="gallery">
+        <figure><img src="img/screen-spectrum.png" width="1598" height="918" alt="The Winamp-style spectrum visualizer filling the window while a track plays." loading="lazy"><figcaption>Winamp spectrum, playing live</figcaption></figure>
+        <figure><img src="img/screen-plasma.png" width="1598" height="918" alt="The Plasma visualizer, a field of shifting color, filling the window." loading="lazy"><figcaption>Plasma</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="priv-h">
+    <p class="eyebrow">How it's built</p>
+    <h2 id="priv-h">Private by default</h2>
+    <div class="privacy">
+      <div>
+        <h3>Your files stay yours</h3>
+        <p>CloudAmp reads only the music folders you choose, and a small private app folder for your library backup. It never moves, edits or deletes your files in OneDrive.</p>
+      </div>
+      <div>
+        <h3>No accounts to make</h3>
+        <p>Sign in with the Microsoft account you already have. Authentication goes through Microsoft's own secure sign-in — CloudAmp never sees your password.</p>
+      </div>
+      <div>
+        <h3>No ads, no tracking</h3>
+        <p>No advertising SDKs, no behavioral tracking, and nothing sold. See the <a href="/privacy-policy/">privacy policy</a> for the full details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="close-h">
+    <div class="closing">
+      <h2 id="close-h">Bring your OneDrive music to life</h2>
+      <p class="lede" style="text-align:center">CloudAmp is coming to the Microsoft Store for Windows 10 and 11, on both x64 and ARM64.</p>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
+        Coming soon to the Microsoft Store
+      </span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mike Kostersitz. CloudAmp for Windows.</span>
+    <span class="links"><a href="/support-policy/">Support</a> · <a href="/privacy-policy/">Privacy policy</a> · <a href="/data-handling-policy/">Data handling</a> · <a href="/">All apps</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var canvas = document.getElementById("viz");
+  var note = document.getElementById("vizNote");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width, H = canvas.height;
+  var mode = "spectrum";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var N = 48;                       // spectrum bins
+  var vals = new Array(N).fill(0);  // smoothed magnitudes 0..1
+  var phase = 0;
+
+  var NOTES = {
+    spectrum: "Winamp-style spectrum. Fast attack, slow decay — just like the app.",
+    scope: "Oscilloscope — the raw waveform, drawn left to right.",
+    bars: "Windows Media Player-style bars with falling peak caps.",
+    plasma: "Plasma — a field of color that breathes with the beat."
+  };
+
+  // Synthesize a lively fake spectrum so the demo feels alive without audio.
+  function sample(i, t) {
+    var f = i / N;
+    var bass = Math.pow(1 - f, 1.7) * (0.6 + 0.4 * Math.sin(t * 2.1));
+    var mid = Math.exp(-Math.pow((f - 0.4) * 3.2, 2)) * (0.5 + 0.5 * Math.sin(t * 3.3 + i));
+    var air = (0.12 + 0.12 * Math.sin(t * 5 + i * 0.7)) * f;
+    var beat = Math.max(0, Math.sin(t * 2.0)) * Math.pow(1 - f, 2) * 0.5;
+    var v = bass + mid * 0.7 + air + beat;
+    return Math.max(0, Math.min(1, v));
+  }
+
+  function grad(y0, y1) {
+    var g = ctx.createLinearGradient(0, y1, 0, y0);
+    g.addColorStop(0, "#2fe6a0");
+    g.addColorStop(0.5, "#5ad98a");
+    g.addColorStop(1, "#4bc5e8");
+    return g;
+  }
+
+  var peaks = new Array(N).fill(0);
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+
+    if (mode === "plasma") {
+      var cell = 16, cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
+      for (var y = 0; y < rows; y++) {
+        for (var x = 0; x < cols; x++) {
+          var v = Math.sin(x * 0.3 + t * 1.3) + Math.sin(y * 0.4 - t * 1.1) +
+                  Math.sin((x + y) * 0.3 + t) + Math.sin(Math.sqrt(x * x + y * y) * 0.4 - t * 1.6);
+          var hue = 150 + v * 40;              // green..cyan..violet band
+          var l = 42 + v * 12;
+          ctx.fillStyle = "hsl(" + hue + ",70%," + l + "%)";
+          ctx.fillRect(x * cell, y * cell, cell + 1, cell + 1);
+        }
+      }
+      return;
+    }
+
+    // update smoothed magnitudes
+    for (var i = 0; i < N; i++) {
+      var target = sample(i, t);
+      vals[i] += (target - vals[i]) * (target > vals[i] ? 0.6 : 0.09); // fast attack, slow decay
+    }
+
+    if (mode === "scope") {
+      ctx.lineWidth = 2.5; ctx.strokeStyle = "#37e6a0"; ctx.beginPath();
+      for (var sx = 0; sx <= W; sx += 4) {
+        var u = sx / W;
+        var yy = H / 2 + Math.sin(u * 22 + t * 6) * (H * 0.3) * (0.4 + 0.6 * vals[Math.floor(u * N) % N]);
+        sx === 0 ? ctx.moveTo(sx, yy) : ctx.lineTo(sx, yy);
+      }
+      ctx.stroke();
+      return;
+    }
+
+    // spectrum / bars
+    var gap = mode === "bars" ? 6 : 3;
+    var bw = (W - gap * (N - 1)) / N;
+    var g = grad(0, H);
+    for (var b = 0; b < N; b++) {
+      var h = vals[b] * (H - 16);
+      var bx = b * (bw + gap);
+      var by = H - h;
+      ctx.fillStyle = g;
+      ctx.fillRect(bx, by, bw, h);
+      if (mode === "bars") {
+        peaks[b] = Math.max(peaks[b] - 2.2, by);
+        ctx.fillStyle = "#cdeff0";
+        ctx.fillRect(bx, peaks[b] - 3, bw, 3);
+      }
+    }
+  }
+
+  var running = true, raf;
+  function loop(ts) {
+    phase = ts / 1000;
+    draw(phase);
+    if (running) raf = requestAnimationFrame(loop);
+  }
+
+  if (reduce) { draw(0.6); }        // static frame, respect reduced motion
+  else raf = requestAnimationFrame(loop);
+
+  // Pause when off-screen to save battery
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (reduce) return;
+        if (e.isIntersecting && !running) { running = true; raf = requestAnimationFrame(loop); }
+        else if (!e.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
+      });
+    }).observe(canvas);
+  }
+
+  var btns = document.querySelectorAll(".seg button");
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      mode = btn.dataset.mode;
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+      note.textContent = NOTES[mode] || "";
+      if (reduce) draw(0.6);
+    });
+  });
+})();
+</script>
+</body>
+</html>

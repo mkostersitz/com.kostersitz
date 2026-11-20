@@ -5,9 +5,9 @@ title: Privacy Policy
 
 # Privacy Policy
 
-**Last updated:** November 14, 2026
+**Last updated:** November 20, 2026
 
-This policy describes how **Mike Kostersitz** ("we", "us") handles information when you use our apps and games: **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player** (collectively, the "Apps"). Each app's specific data practices are noted where they differ.
+This policy describes how **Mike Kostersitz** ("we", "us") handles information when you use our apps and games: **Clockwork Ascent**, **NullRoute**, and **CloudAmp** (collectively, the "Apps"). Each app's specific data practices are noted where they differ.
 
 ## Who is responsible
 
@@ -24,10 +24,11 @@ Mike Kostersitz is responsible for information covered by this policy. Contact u
 - **Crash reports and diagnostics:** All Apps may collect crash logs and basic diagnostic data to help us identify and fix bugs. This may include device type, OS version, and an anonymized device identifier. On Apple platforms, this flows through Apple's crash reporting infrastructure; you can opt out in Settings → Privacy & Security → Analytics & Improvements. On Windows, crash data is collected through the platform or mechanism noted in the app's store listing.
 - **Store analytics:** Platform stores (App Store, Microsoft Store) may share aggregated, non-identifiable download and usage statistics with us. We receive totals and trends, not individual user data.
 
-### Cloud Media Player — additional data
+### CloudAmp — additional data
 
-- **Cloud storage access:** Cloud Media Player connects to third-party cloud storage services (such as iCloud Drive, Dropbox, or others you authorize) using the credentials and permissions you grant. We access only the files and folders you direct the app to use. We do not store your cloud provider credentials; authentication is handled by the provider's own OAuth flow.
-- **Local media library:** Playback history and playlists you create are stored locally on your device. On Apple platforms, they may also sync to your personal iCloud account if you enable it. We do not receive or store this data on our servers.
+- **OneDrive access:** CloudAmp is a Windows app that connects to your personal Microsoft OneDrive to stream your music. You sign in with your Microsoft account through Microsoft's own secure sign-in (MSAL); CloudAmp never sees or stores your password. It requests permission to read the music folders you choose and to read and write a single private app folder (`/Apps/CloudAmp`). It accesses only those folders, and it never moves, edits, or deletes your music files.
+- **Library and playlists:** The list of tracks you've added and the playlists you create are stored locally on your PC and backed up to the private `/Apps/CloudAmp` folder in your own OneDrive, so they survive a reinstall and roam to other PCs where you sign in. This data lives in your OneDrive and on your device — we never receive or store it on our servers.
+- **Sign-in token:** CloudAmp caches a Microsoft sign-in token on your device, encrypted at rest (Windows DPAPI), so you stay signed in between sessions. It is never sent to us.
 
 ### Clockwork Ascent — additional data
 
@@ -56,7 +57,7 @@ We do not use information for advertising or sell it to third parties.
 
 - **Apple:** On Apple platforms, crash data and store metrics flow through Apple's services. See [Apple's privacy policy](https://www.apple.com/legal/privacy/).
 - **Microsoft:** On Windows, store metrics flow through Microsoft's services. See [Microsoft's privacy policy](https://privacy.microsoft.com).
-- **Cloud storage providers:** Cloud Media Player communicates directly with the cloud services you authorize. Those providers handle your data under their own privacy policies.
+- **Microsoft OneDrive:** CloudAmp communicates directly with Microsoft OneDrive (via Microsoft Graph) using the account you sign in with. Microsoft handles your files and sign-in under its own [privacy policy](https://privacy.microsoft.com).
 - **Legal reasons:** We may disclose information if required by law or to protect the rights and safety of users.
 
 We do not share personal information with advertisers, data brokers, or analytics platforms.
@@ -74,7 +75,7 @@ To request deletion of support communications, email [support@kostersitz.com](ma
 - **Crash reporting (Apple platforms):** Opt out in Settings → Privacy & Security → Analytics & Improvements.
 - **Crash reporting (Windows):** Refer to the app's store listing or in-app settings for the opt-out mechanism available on your version.
 - **iCloud sync (Apple platforms only):** Disable per-app in Settings → [your name] → iCloud.
-- **Cloud Media Player permissions:** Revoke cloud storage access at any time within the app's Settings, or through your cloud provider's connected-apps settings.
+- **CloudAmp permissions:** Sign out in the app at any time, or revoke CloudAmp's access to your OneDrive from your Microsoft account at [account.microsoft.com](https://account.microsoft.com/privacy) (Privacy → Apps and services).
 - **Support data:** Request access, correction, or deletion of support communications at [support@kostersitz.com](mailto:support@kostersitz.com).
 
 If you are in the European Economic Area, UK, or California, additional rights may apply. Contact us to exercise them.

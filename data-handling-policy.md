@@ -5,9 +5,9 @@ title: Data Handling Policy
 
 # Data Handling Policy
 
-**Last updated:** November 14, 2026
+**Last updated:** November 20, 2026
 
-This page describes, in practical terms, what data **Mike Kostersitz** handles for **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player**, where it goes, and how it is managed. For user-facing privacy information, see the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
+This page describes, in practical terms, what data **Mike Kostersitz** handles for **Clockwork Ascent**, **NullRoute**, and **CloudAmp**, where it goes, and how it is managed. For user-facing privacy information, see the [Privacy Policy]({{ '/privacy-policy/' | relative_url }}).
 
 ## Data inventory
 
@@ -19,13 +19,13 @@ This page describes, in practical terms, what data **Mike Kostersitz** handles f
 | Store install/usage metrics (aggregated, anonymous) | App Store Connect / Microsoft Store | Understand usage trends | Not configurable — handled by platform |
 | Support email content and email address | User-submitted | Resolve support issues | Optional — only when user contacts support |
 
-### Cloud Media Player (additional)
+### CloudAmp (additional)
 
 | Data | Source | Purpose | Required or optional |
 |------|--------|---------|---------------------|
-| Cloud storage OAuth token | User authorization via provider | Authenticate to cloud storage | Required for cloud features |
-| File/folder list from authorized cloud path | Cloud provider API | Display media library | Required for cloud features |
-| Local playback history and playlists | User actions in app | Restore playback state | Stored locally; optional (clearable in app) |
+| Microsoft sign-in token | User sign-in via Microsoft (MSAL) | Authenticate to OneDrive; keep you signed in | Required — cached on device, DPAPI-encrypted |
+| File/folder list from your chosen OneDrive music folders | Microsoft Graph (OneDrive) | Browse and stream your library | Required for playback |
+| Library index and playlists | User actions in app | Restore your library; roam across devices | Stored locally and in a private OneDrive app folder (`/Apps/CloudAmp`); clearable in app |
 
 ### Clockwork Ascent (additional)
 
@@ -44,8 +44,8 @@ This page describes, in practical terms, what data **Mike Kostersitz** handles f
 
 - **Crash data:** Stored and processed by the platform (Apple on iOS/macOS, Microsoft on Windows). We access aggregate reports through the respective developer dashboards. No raw personal identifiers are available to us.
 - **Support communications:** Received via email. Access is limited to Mike Kostersitz. Stored in email infrastructure subject to that provider's security practices.
-- **App data (saves, settings, playlists):** Stored on the user's device. On Apple platforms, optionally synced to the user's personal iCloud account. On Windows, stored locally only. Mike Kostersitz does not have access to this data.
-- **Cloud Media Player tokens:** OAuth tokens are stored in the device's secure credential store (Keychain on Apple platforms, Windows Credential Manager on Windows). They are not transmitted to our servers.
+- **App data (saves, settings, playlists):** Stored on the user's device. On Apple platforms, optionally synced to the user's personal iCloud account. On Windows, stored locally; CloudAmp additionally backs up its library index and playlists to a private app folder in the user's own OneDrive (`/Apps/CloudAmp`). Mike Kostersitz does not have access to this data.
+- **CloudAmp sign-in token:** The Microsoft sign-in token is cached on the device, encrypted at rest with Windows DPAPI. It is not transmitted to our servers.
 
 **Development and testing:** We do not use production user data in development or testing. Test builds use developer-owned accounts and locally generated test data.
 
@@ -55,7 +55,7 @@ This page describes, in practical terms, what data **Mike Kostersitz** handles f
 |----------|--------------|---------|
 | Apple (App Store, iCloud) | Crash reports, aggregate metrics, iCloud sync | Platform services for Apple platform apps — see [Apple's privacy policy](https://www.apple.com/legal/privacy/) |
 | Microsoft (Microsoft Store) | Crash reports, aggregate metrics | Platform services for Windows apps — see [Microsoft's privacy policy](https://privacy.microsoft.com) |
-| User's chosen cloud provider (Cloud Media Player) | OAuth token, file/folder access | Media library access — governed by provider's own privacy policy |
+| Microsoft (OneDrive / Graph, for CloudAmp) | Sign-in, access to chosen music folders and the app folder | Stream the user's library — see [Microsoft's privacy policy](https://privacy.microsoft.com) |
 | Email provider (support) | Support email content | Delivery and storage of support communications |
 
 We do not use advertising networks, third-party analytics SDKs, or data brokers.
@@ -68,7 +68,7 @@ We do not use advertising networks, third-party analytics SDKs, or data brokers.
 | Store metrics | Per platform policies (Apple / Microsoft) | Not configurable |
 | Support emails | Up to 2 years from last contact | Email request to [support@kostersitz.com](mailto:support@kostersitz.com) |
 | App data (saves, settings, playlists) | Until app is deleted or storage is cleared | Delete app, or clear via device/system app settings |
-| Cloud storage OAuth token | Until revoked or app is deleted | Revoke in app Settings or in cloud provider's connected apps |
+| CloudAmp sign-in token | Until you sign out or the app is deleted | Sign out in the app, or revoke access at account.microsoft.com |
 
 ## Data requests and incidents
 

@@ -5,9 +5,9 @@ title: Support Policy
 
 # Support Policy
 
-**Last updated:** November 14, 2026
+**Last updated:** November 20, 2026
 
-This page explains how to get help with **Clockwork Ascent**, **NullRoute**, and **Cloud Media Player** from **Mike Kostersitz**.
+This page explains how to get help with **Clockwork Ascent**, **NullRoute**, and **CloudAmp** from **Mike Kostersitz**.
 
 ## Contact {#contact}
 
@@ -27,8 +27,8 @@ Do not send passwords, payment card numbers, Apple ID or Microsoft account crede
 - Crashes and unexpected behavior
 - Saving and loading progress (Clockwork Ascent, NullRoute)
 - iCloud sync issues (Apple platforms only)
-- Cloud storage connection issues (Cloud Media Player)
-- Supported file formats and playback problems (Cloud Media Player)
+- OneDrive sign-in and connection issues (CloudAmp)
+- Supported file formats and playback problems (CloudAmp)
 - Accessibility questions
 - General gameplay questions (Clockwork Ascent, NullRoute)
 
@@ -39,8 +39,8 @@ Do not send passwords, payment card numbers, Apple ID or Microsoft account crede
 1. **Force-quit and relaunch** the app.
 2. **Check for an update** — many issues are fixed in the latest version.
 3. **Restart your device.**
-4. **Check your internet connection** (Cloud Media Player requires a connection to your cloud provider).
-5. **Re-authorize cloud storage** if Cloud Media Player loses access — go to the app's Settings and reconnect your cloud account.
+4. **Check your internet connection** (CloudAmp streams from OneDrive and needs a connection).
+5. **Sign in again** if CloudAmp loses access to OneDrive — use the Sign in button in the app.
 6. **Check iCloud status** at [apple.com/support/systemstatus](https://www.apple.com/support/systemstatus/) for sync issues (Apple platforms only).
 7. **Windows only:** Check that your antivirus or firewall is not blocking the app. Try running the app as your normal user account, not as administrator.
 
@@ -68,9 +68,9 @@ We handle support requests as described in the [Privacy Policy]({{ '/privacy-pol
 ### NullRoute
 - Available on iOS, iPadOS, macOS, and Windows. Settings and progress are stored locally. On Apple platforms, they can optionally sync via iCloud. On Windows, saves are stored locally only — there is no cross-platform sync between Apple and Windows at this time.
 
-### Cloud Media Player
-- Available on iOS, iPadOS, macOS, and Windows. The app requires permission to access your cloud storage. If access is revoked or expires, go to the app's Settings and reconnect to restore it.
-- Supported cloud providers and file formats are listed in the app's Help section. We cannot add support for a provider or format outside an app update.
+### CloudAmp
+- Available on Windows (x64 and ARM64). The app streams your music from your personal OneDrive. Sign in with your Microsoft account; if access is revoked or expires, use the Sign in button in the app to restore it.
+- Your library and playlists are backed up to a private folder in your own OneDrive, so they return when you sign in on another PC. Supported file formats are listed in the app's Help section. We cannot add support for a format outside an app update.
 
 ## Limits
 
